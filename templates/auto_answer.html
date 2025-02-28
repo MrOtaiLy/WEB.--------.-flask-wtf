@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %}
+<h2>{{ data.title }}</h2>
+<h4>Фамилия: {{ data.surname }}</h4>
+<h4>Имя: {{ data.name }}</h4>
+<h4>Образование: {{ data.education }}</h4>
+<h4>Профессия: {{ data.profession }}</h4>
+<h4>Пол: {{ data.sex }}</h4>
+<h4>Мотивация: {{ data.motivation }}</h4>
+<h4>Готовы остаться: {{ data.ready }}</h4> {% endblock %}
