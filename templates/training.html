@@ -1,4 +1,4 @@
 {% extends 'base.html' %} {% block content %} {% if 'инженер' in prof or 'строитель' in prof %}
-<h2>Инженерные тренажеры</h2> <img src="{{ url_for('static', filename='img/engineering.png') }}">
-<h2>Научные симуляторы</h2> <img src="{{ url_for('static', filename='img/science.png') }}"> {% else %}
-<h2>Научные симуляторы</h2> <img src="{{ url_for('static', filename='img/science.png') }}"> {% endif %} {% endblock %}
+<h2>Инженерные тренажеры</h2> <img src="{{ url_for('static', filename='img/engineering.png') }}" class="img-fluid my-3">
+<h2>Научные симуляторы</h2> <img src="{{ url_for('static', filename='img/science.png') }}" class="img-fluid my-3"> {% else %}
+<h2>Научные симуляторы</h2> <img src="{{ url_for('static', filename='img/science.png') }}" class="img-fluid my-3"> {% endif %} {% endblock %}

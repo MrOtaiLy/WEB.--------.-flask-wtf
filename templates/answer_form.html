@@ -1,20 +1,12 @@
 {% extends 'base.html' %} {% block content %}
-<form method="post">
-	<input type="text" name="title" placeholder="Заголовок">
-	<br>
-	<input type="text" name="surname" placeholder="Фамилия">
-	<br>
-	<input type="text" name="name" placeholder="Имя">
-	<br>
-	<input type="text" name="education" placeholder="Образование">
-	<br>
-	<input type="text" name="profession" placeholder="Профессия">
-	<br>
-	<input type="text" name="sex" placeholder="Пол">
-	<br>
-	<input type="text" name="motivation" placeholder="Мотивация">
-	<br>
-	<input type="text" name="ready" placeholder="Готовы?">
-	<br>
-	<button type="submit">Отправить</button>
+<form method="post" class="mt-4">
+	<input type="text" name="title" placeholder="Заголовок" class="form-control mb-2">
+	<input type="text" name="surname" placeholder="Фамилия" class="form-control mb-2">
+	<input type="text" name="name" placeholder="Имя" class="form-control mb-2">
+	<input type="text" name="education" placeholder="Образование" class="form-control mb-2">
+	<input type="text" name="profession" placeholder="Профессия" class="form-control mb-2">
+	<input type="text" name="sex" placeholder="Пол" class="form-control mb-2">
+	<input type="text" name="motivation" placeholder="Мотивация" class="form-control mb-2">
+	<input type="text" name="ready" placeholder="Готовы?" class="form-control mb-2">
+	<button type="submit" class="btn btn-primary mt-2">Отправить</button>
 </form> {% endblock %}
