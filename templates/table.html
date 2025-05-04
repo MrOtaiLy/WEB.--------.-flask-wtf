@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Оформление каюты</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Цвет стен</th>
+        <th>Изображение</th>
+    </tr>
+    <tr>
+        {% set color = 
+            '#007bff' if sex == 'male' and age < 21 else
+            '#28a745' if sex == 'male' else
+            '#ff69b4' if age < 21 else
+            '#dc3545' 
+        %}
+        <td style="background-color: {{ color }}"></td> # Не знаю почему подсвечивается как ошибка. Всё работает
+        <td>
+            <img 
+                src="{{ url_for('static', filename='img/' ~ ('child' if age < 21 else 'adult') ~ '.png') }}" 
+                class="img-fluid" 
+                alt="Марсианин"
+            >
+        </td>
+    </tr>
+</table>
+{% endblock %}

@@ -89,6 +89,15 @@ def distribution():
     ]
     return render_template("distribution.html", astronauts=astronauts)
 
+@app.route("/table")
+def table():
+    sex = request.args.get("sex", "male")
+    age = request.args.get("age", "0")
+    try:
+        age = int(age)
+    except ValueError:
+        age = 0
+    return render_template("table.html", sex=sex, age=age)
 
 if __name__ == "__main__":
     app.run(debug=True)
