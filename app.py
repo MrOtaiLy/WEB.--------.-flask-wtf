@@ -3,10 +3,9 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
-@app.route('/<title>')
 @app.route("/index")
-def index():
-    title = request.args.get("title", "Заглушка")
+@app.route("/<title>")
+def index(title="Заглушка"):
     return render_template("base.html", title=title)
 
 
@@ -65,6 +64,17 @@ def auto_answer():
         "ready": "True",
     }
     return render_template("auto_answer.html", data=data)
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        astronaut_id = request.form.get("astronaut_id")
+        astronaut_password = request.form.get("astronaut_password")
+        captain_id = request.form.get("captain_id")
+        captain_token = request.form.get("captain_token")
+        return render_template("login_result.html")
+    return render_template("mars_access.html")
 
 
 if __name__ == "__main__":
