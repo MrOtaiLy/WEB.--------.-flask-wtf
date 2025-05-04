@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Галерея марсианских пейзажей</h2>
+
+<form method="post" enctype="multipart/form-data" class="mb-5">
+    <input type="file" name="file" accept=".png, .jpg, .jpeg" required>
+    <button type="submit" class="btn btn-primary">Загрузить</button>
+</form>
+
+<div class="row">
+    {% for image in images %}
+    <div class="col-md-4 mb-3">
+        <img 
+            src="{{ url_for('static', filename='uploads/' + image) }}" 
+            class="img-thumbnail" 
+            alt="Марсианский пейзаж"
+        >
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

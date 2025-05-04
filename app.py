@@ -1,6 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
+from werkzeug.utils import secure_filename
+import os
 
 app = Flask(__name__)
+app.config["UPLOAD_FOLDER"] = "static/uploads"
+app.config["ALLOWED_EXTENSIONS"] = {"png", "jpg", "jpeg"}
 
 
 @app.route("/index")
@@ -89,6 +93,7 @@ def distribution():
     ]
     return render_template("distribution.html", astronauts=astronauts)
 
+
 @app.route("/table")
 def table():
     sex = request.args.get("sex", "male")
@@ -98,6 +103,26 @@ def table():
     except ValueError:
         age = 0
     return render_template("table.html", sex=sex, age=age)
+
+
+def allowed_file(filename):
+    return (
+        "." in filename
+        and filename.rsplit(".", 1)[1].lower() in app.config["ALLOWED_EXTENSIONS"]
+    )
+
+
+@app.route("/gallery", methods=["GET", "POST"])
+def gallery():
+    if request.method == "POST":
+        file = request.files["file"]
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+            return redirect(url_for("gallery"))
+    images = os.listdir(app.config["UPLOAD_FOLDER"])
+    return render_template("gallery.html", images=images)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
