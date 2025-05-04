@@ -77,5 +77,18 @@ def login():
     return render_template("mars_access.html")
 
 
+@app.route("/distribution")
+def distribution():
+    astronauts = [
+        "Ридли Скотт",
+        "Энди Уир",
+        "Марк Уотни",
+        "Венката Капур",
+        "Тедди Сандерс",
+        "Шон Бин",
+    ]
+    return render_template("distribution.html", astronauts=astronauts)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
