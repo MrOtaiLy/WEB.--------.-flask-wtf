@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 import os
+import json
+import random
 
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "static/uploads"
@@ -122,6 +124,15 @@ def gallery():
             return redirect(url_for("gallery"))
     images = os.listdir(app.config["UPLOAD_FOLDER"])
     return render_template("gallery.html", images=images)
+
+
+@app.route("/member")
+def member():
+    with open("templates/crew.json", "r", encoding="utf-8") as f:
+        crew = json.load(f)
+    member = random.choice(crew)
+    member["professions"] = sorted(member["professions"])
+    return render_template("member.html", member=member)
 
 
 if __name__ == "__main__":

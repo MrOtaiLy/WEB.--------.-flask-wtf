@@ -1,0 +1,20 @@
+[
+    {
+        "first_name": "Ридли",
+        "last_name": "Скотт",
+        "photo": "static/img/ridley.jpg",
+        "professions": ["капитан", "пилот"]
+    },
+    {
+        "first_name": "Энди",
+        "last_name": "Уир",
+        "photo": "static/img/andy.jpg",
+        "professions": ["ботаник", "инженер"]
+    },
+    {
+        "first_name": "Марк",
+        "last_name": "Уотни",
+        "photo": "static/img/mark.jpg",
+        "professions": ["агроном", "химик"]
+    }
+]
