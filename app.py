@@ -98,7 +98,7 @@ def distribution():
 
 @app.route("/table")
 def table():
-    sex = request.args.get("sex", "male")
+    sex = request.args.get("sex", "male").lower()
     age = request.args.get("age", "0")
     try:
         age = int(age)

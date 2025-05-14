@@ -14,12 +14,13 @@
             '#ff69b4' if age < 21 else
             '#dc3545' 
         %}
-        <td style="background-color: {{ color }}"></td> # Не знаю почему подсвечивается как ошибка. Всё работает
+        <td style="background-color: '{{ color }}'; width: 200px; height: 200px;"></td>
         <td>
             <img 
-                src="{{ url_for('static', filename='img/' ~ ('child' if age < 21 else 'adult') ~ '.png') }}" 
+                src="{{ url_for('static', filename='img/' + ('child.png' if age < 21 else 'adult.png')) }}" 
                 class="img-fluid" 
                 alt="Марсианин"
+                style="max-width: 200px;"
             >
         </td>
     </tr>
